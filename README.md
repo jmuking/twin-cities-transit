@@ -1,3 +1,13 @@
+# Assumptions
+
+Some assumptions that were made during this:
+
+* When selecting route, it should deselect any previously selected direction and stop
+* When selecting direction, it should deselect any previously selected stop
+* Our route is saved as query params
+* Styles were not as important as functionality
+* Tests on rendered components were not as important as tests on utils
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
