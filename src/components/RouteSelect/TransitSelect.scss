@@ -1,0 +1,16 @@
+.select-container {
+  display: flex;
+  flex-direction: column;
+
+  .select-label {
+    font-weight: bold;
+  }
+
+  .select {
+    cursor: pointer;
+    background-color: rgb(223, 240, 239);
+    border: 1px solid rgb(84, 119, 131);
+    border-radius: 5px;
+    padding: 10px;
+  }
+}
