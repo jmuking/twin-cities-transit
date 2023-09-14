@@ -4,12 +4,20 @@
   flex-direction: column;
 }
 
-.departure-item {
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
+.departures-list {
+  padding-left: 0;
 
-  &.header {
-    font-weight: bold;
+  .departure-item {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+
+    &.header {
+      font-weight: bold;
+    }
   }
+}
+
+.train-gif {
+  width: 100%;
 }

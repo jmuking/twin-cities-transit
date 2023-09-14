@@ -115,7 +115,7 @@ function RouteBuilder() {
       )}
       {departures.length > 0 && (
         <div className="departures-container">
-          <ul>
+          <ul className="departures-list">
             <li className="departure-item header">
               <p>Time to Depart</p>
               <p>Where</p>
@@ -129,7 +129,7 @@ function RouteBuilder() {
               );
             })}
           </ul>
-          <img src={trainGif} alt="train-gif" />
+          <img className="train-gif" src={trainGif} alt="train-gif" />
         </div>
       )}
     </>
