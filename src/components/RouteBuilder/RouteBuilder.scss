@@ -1,0 +1,15 @@
+.departures-container {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.departure-item {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+
+  &.header {
+    font-weight: bold;
+  }
+}

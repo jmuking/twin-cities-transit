@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
+import "./RouteBuilder.scss";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { SelectType } from "../../types/SelectTypes";
 import TransitSelect from "../RouteSelect/TransitSelect";
+import trainGif from "../../images/train.gif";
+import {
+  buildDeparturesRequest,
+  convertToDate,
+  fetchResults,
+} from "../../utils/APIUtils";
+import { Departure } from "../../types/APITypes";
 
 function RouteBuilder() {
   const navigate = useNavigate();
@@ -11,7 +19,11 @@ function RouteBuilder() {
   const [selectedDirection, setSelectedDirection] = useState<string>("");
   const [selectedStop, setSelectedStop] = useState<string>("");
 
+  const [departures, setDepartures] = useState<Departure[]>([]);
+
   function selectChanged(value: string, type: SelectType) {
+    setDepartures([]);
+
     let route = searchParams.get("route") || "";
     let direction = searchParams.get("direction") || "";
     let stop = searchParams.get("stop") || "";
@@ -45,6 +57,17 @@ function RouteBuilder() {
   }
 
   useEffect(() => {
+    async function fetchDepartures() {
+      const request = buildDeparturesRequest(
+        selectedRoute,
+        selectedDirection,
+        selectedStop
+      );
+
+      const data = await fetchResults(request);
+      if (data?.departures) setDepartures(data.departures);
+    }
+
     const route = searchParams.get("route");
     if (!route) setSelectedRoute("");
     else if (route !== selectedRoute) setSelectedRoute(route);
@@ -56,7 +79,14 @@ function RouteBuilder() {
     const stop = searchParams.get("stop");
     if (!stop) setSelectedStop("");
     else if (stop !== selectedStop) setSelectedStop(stop);
+    else if (selectedRoute && selectedDirection && selectedStop) {
+      fetchDepartures().catch(console.error);
+    }
   }, [searchParams, selectedDirection, selectedRoute, selectedStop]);
+
+  useEffect(() => {
+    console.log(departures);
+  }, [departures]);
 
   return (
     <>
@@ -86,6 +116,25 @@ function RouteBuilder() {
             selectChanged(stop, SelectType.STOP);
           }}
         />
+      )}
+      {departures.length > 0 && (
+        <div className="departures-container">
+          <ul>
+            <li className="departure-item header">
+              <p>Time to Depart</p>
+              <p>Where</p>
+            </li>
+            {departures?.map((departure) => {
+              return (
+                <li className="departure-item">
+                  <p>{departure.departure_text}</p>
+                  <p>{departure.description}</p>
+                </li>
+              );
+            })}
+          </ul>
+          <img src={trainGif} alt="train-gif" />
+        </div>
       )}
     </>
   );

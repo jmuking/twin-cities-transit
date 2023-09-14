@@ -10,6 +10,7 @@ import {
   buildOptions,
   buildRequest,
   compareRequestParams,
+  fetchResults,
 } from "../../utils/APIUtils";
 
 function TransitSelect({
@@ -31,13 +32,11 @@ function TransitSelect({
   }
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchTransitData() {
       const request = buildRequest(type, requestParams);
 
       if (request) {
-        const response = await fetch(request);
-        const data = await response.json();
-
+        const data = await fetchResults(request);
         const _options = buildOptions(data, type);
         setOptions(_options);
         setLastRequestParams(requestParams);
@@ -48,7 +47,7 @@ function TransitSelect({
       (type === SelectType.ROUTE && options.length === 0) ||
       !compareRequestParams(requestParams, lastRequestParams)
     )
-      fetchData().catch(console.error);
+      fetchTransitData().catch(console.error);
   }, [lastRequestParams, options.length, requestParams, type]);
 
   return (

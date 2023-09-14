@@ -1,20 +1,33 @@
 import { Direction, Route, Stop } from "../types/APITypes";
 import { RequestParams, SelectType, Option } from "../types/SelectTypes";
 
-export const BASEURL = "https://svc.metrotransit.org";
+export const BASEURL = "https://svc.metrotransit.org/nextripv2";
+
+export async function fetchResults(request: string) {
+  const response = await fetch(request);
+  return await response.json();
+}
+
+export function buildDeparturesRequest(
+  route: string,
+  direction: string,
+  stop: string
+) {
+  return `${BASEURL}/${route}/${direction}/${stop}`;
+}
 
 export function buildRequest(type: SelectType, requestParams?: RequestParams) {
   switch (type) {
     case SelectType.ROUTE:
-      return `${BASEURL}/nextrip/routes`;
+      return `${BASEURL}/routes`;
     case SelectType.DIRECTION:
       if (requestParams?.route)
-        return `${BASEURL}/nextrip/directions/${requestParams?.route}`;
+        return `${BASEURL}/directions/${requestParams?.route}`;
 
       break;
     case SelectType.STOP:
       if (requestParams?.direction && requestParams?.route)
-        return `${BASEURL}/nextrip/stops/${requestParams?.route}/${requestParams?.direction}`;
+        return `${BASEURL}/stops/${requestParams?.route}/${requestParams?.direction}`;
 
       break;
     default:
@@ -73,4 +86,8 @@ export function buildOptions(
 
 export function compareRequestParams(rp1?: RequestParams, rp2?: RequestParams) {
   return rp1?.route === rp2?.route && rp1?.direction === rp2?.direction;
+}
+
+export function convertToDate(time: number) {
+  return new Date(time);
 }

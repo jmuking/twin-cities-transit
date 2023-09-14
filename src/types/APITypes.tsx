@@ -15,3 +15,17 @@ export interface Stop {
   place_code: string;
   description?: string;
 }
+
+export interface Departure {
+  actual: boolean;
+  departure_text: string;
+  departure_time: number;
+  description: string;
+  direction_id: number;
+  direction_text: string;
+  route_id: string;
+  route_short_name: string;
+  schedule_relationship: string;
+  stop_id: number;
+  trip_id: string;
+}

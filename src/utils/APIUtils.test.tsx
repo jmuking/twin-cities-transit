@@ -9,16 +9,16 @@ import { Direction, Route, Stop } from "../types/APITypes";
 
 test("Build Request", () => {
   const routeRequest = buildRequest(SelectType.ROUTE);
-  expect(routeRequest).toBe(`${BASEURL}/nextrip/routes`);
+  expect(routeRequest).toBe(`${BASEURL}/routes`);
 
   const directionRequest = buildRequest(SelectType.DIRECTION, { route: "902" });
-  expect(directionRequest).toBe(`${BASEURL}/nextrip/directions/902`);
+  expect(directionRequest).toBe(`${BASEURL}/directions/902`);
 
   const stopRequest = buildRequest(SelectType.STOP, {
     route: "902",
     direction: "0",
   });
-  expect(stopRequest).toBe(`${BASEURL}/nextrip/stops/902/0`);
+  expect(stopRequest).toBe(`${BASEURL}/stops/902/0`);
 });
 
 test("Build Options", () => {
