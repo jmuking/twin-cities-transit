@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/twin-cities-transit/static/css/main.b48f49a3.css",
+    "main.js": "/twin-cities-transit/static/js/main.f30fe165.js",
+    "static/js/787.474b774d.chunk.js": "/twin-cities-transit/static/js/787.474b774d.chunk.js",
+    "index.html": "/twin-cities-transit/index.html",
+    "main.b48f49a3.css.map": "/twin-cities-transit/static/css/main.b48f49a3.css.map",
+    "main.f30fe165.js.map": "/twin-cities-transit/static/js/main.f30fe165.js.map",
+    "787.474b774d.chunk.js.map": "/twin-cities-transit/static/js/787.474b774d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b48f49a3.css",
+    "static/js/main.f30fe165.js"
+  ]
+}
