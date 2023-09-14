@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/twin-cities-transit/static/css/main.b48f49a3.css",
-    "main.js": "/twin-cities-transit/static/js/main.f30fe165.js",
+    "main.css": "/twin-cities-transit/static/css/main.81ff5d71.css",
+    "main.js": "/twin-cities-transit/static/js/main.80047afd.js",
     "static/js/787.474b774d.chunk.js": "/twin-cities-transit/static/js/787.474b774d.chunk.js",
+    "static/media/train.gif": "/twin-cities-transit/static/media/train.3dcbc601ffa47e886266.gif",
     "index.html": "/twin-cities-transit/index.html",
-    "main.b48f49a3.css.map": "/twin-cities-transit/static/css/main.b48f49a3.css.map",
-    "main.f30fe165.js.map": "/twin-cities-transit/static/js/main.f30fe165.js.map",
+    "main.81ff5d71.css.map": "/twin-cities-transit/static/css/main.81ff5d71.css.map",
+    "main.80047afd.js.map": "/twin-cities-transit/static/js/main.80047afd.js.map",
     "787.474b774d.chunk.js.map": "/twin-cities-transit/static/js/787.474b774d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b48f49a3.css",
-    "static/js/main.f30fe165.js"
+    "static/css/main.81ff5d71.css",
+    "static/js/main.80047afd.js"
   ]
 }
