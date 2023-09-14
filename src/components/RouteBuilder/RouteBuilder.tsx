@@ -4,11 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { SelectType } from "../../types/SelectTypes";
 import TransitSelect from "../RouteSelect/TransitSelect";
 import trainGif from "../../images/train.gif";
-import {
-  buildDeparturesRequest,
-  convertToDate,
-  fetchResults,
-} from "../../utils/APIUtils";
+import { buildDeparturesRequest, fetchResults } from "../../utils/APIUtils";
 import { Departure } from "../../types/APITypes";
 
 function RouteBuilder() {
