@@ -1,8 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@use "styles/_colors.scss";
-
 body {
   width: 100vw;
   height: 100vh;
